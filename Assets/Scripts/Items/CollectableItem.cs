@@ -87,8 +87,8 @@ public class CollectableItem : MonoBehaviour
     {
         if (other.CompareTag("Player") && !battleStarted)
         {
-            _currentButton.SetActive(false);
             battleStarted = true;
+            _currentButton.SetActive(false);
             BattleSystem.instance.StartBattle(enemyToFight, this);
         }
     }
@@ -112,13 +112,13 @@ public class CollectableItem : MonoBehaviour
         TextMeshProUGUI text = feedback.AddComponent<TextMeshProUGUI>();
         text.text = "+ " + _nearbyItem.itemName;
         text.color = Color.green;
-        text.fontSize = 36;
+        text.fontSize = 50;
         text.alignment = TextAlignmentOptions.Center;
         
         RectTransform rt = feedback.GetComponent<RectTransform>();
         rt.SetParent(_canvas.transform);
         rt.anchoredPosition = WorldToCanvasPosition(_nearbyItem.transform.position + Vector3.up * 0.5f);
-        rt.sizeDelta = new Vector2(200, 50);
+        rt.sizeDelta = new Vector2(400, 100);
 
         StartCoroutine(AnimateFeedback(feedback));
     }

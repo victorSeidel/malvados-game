@@ -4,8 +4,9 @@ public class CharacterLocomotion : MonoBehaviour
 {
     [Tooltip("Character controller is a built in component in unity. Feel free to use rigidbody or changing transform directly")]
     [SerializeField] CharacterController characterController;
-    [Tooltip("how fast the player walks")]
-    [SerializeField] float walkSpeed = 3f;
+    [SerializeField] float currentSpeed;
+    [SerializeField] float walkSpeed;
+    [SerializeField] float runSpeed;
     [Tooltip("if you would like separate visual from player assign something else here")]
     [SerializeField] Transform characterVisual;
 
@@ -27,6 +28,8 @@ public class CharacterLocomotion : MonoBehaviour
     float mag;
     Vector3 fwd, right;
 
+    Camera mainCamera;
+
     void Awake()
     {
         if (characterController == null)
@@ -42,11 +45,13 @@ public class CharacterLocomotion : MonoBehaviour
 
     void Start()
     {
-        RecalculateCamera(Camera.main);
+        mainCamera = Camera.main;
     }
 
     void Update()
     {
+        RecalculateCamera(mainCamera);
+        
         mag = Mathf.Clamp01(new Vector2(moveJoystick.Horizontal, moveJoystick.Vertical).sqrMagnitude);
 
         if (mag >= movementThreshold)
@@ -61,24 +66,23 @@ public class CharacterLocomotion : MonoBehaviour
         UpdateStateMachine();
     }
 
-    void RecalculateCamera(Camera _cam)
+    public void RecalculateCamera(Camera cam)
     {
-        Camera cam = _cam;
         fwd = cam.transform.forward;
         fwd.y = 0;
-        fwd = Vector3.Normalize(fwd);
-        right = Quaternion.Euler(new Vector3(0, 90, 0)) * fwd;
+        fwd.Normalize();
+        right = Quaternion.Euler(0, 90, 0) * fwd;
     }
 
     void MovementAndRotation()
     {
-        Vector3 rightMovement = right * walkSpeed * Time.deltaTime * moveJoystick.Horizontal;
-        Vector3 upMovement = fwd * walkSpeed * Time.deltaTime * moveJoystick.Vertical;
+        Vector3 rightMovement = right * currentSpeed * Time.deltaTime * moveJoystick.Horizontal;
+        Vector3 upMovement = fwd * currentSpeed * Time.deltaTime * moveJoystick.Vertical;
 
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
         heading.y = characterController.isGrounded ? -1f : -9.8f;
 
-        characterController.Move(heading * walkSpeed * Time.deltaTime);
+        characterController.Move(heading * currentSpeed * Time.deltaTime);
 
         Vector3 lookDirection = new Vector3(heading.x, 0, heading.z);
         if (lookDirection != Vector3.zero)
@@ -129,5 +133,11 @@ public class CharacterLocomotion : MonoBehaviour
                 animator.SetTrigger("ToCollecting");
                 break;
         }
+    }
+
+    public void SetSpeed(bool sprint)
+    {
+        if (sprint) currentSpeed = runSpeed;
+        else currentSpeed = walkSpeed;
     }
 }

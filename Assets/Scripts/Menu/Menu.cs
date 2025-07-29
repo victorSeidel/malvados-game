@@ -8,3 +8,5 @@ public class Menu : MonoBehaviour
         SceneManager.LoadSceneAsync(1);
     }
 }
+
+

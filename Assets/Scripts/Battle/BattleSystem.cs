@@ -59,6 +59,7 @@ public class BattleSystem : MonoBehaviour
         item = itemToCollect;
 
         playerUnit = player.GetComponent<Unit>();
+        playerUnit.RestartPlayer();
 
         enemyGO = Instantiate(enemyPrefab);
         enemyUnit = enemyGO.GetComponent<Unit>();

@@ -106,7 +106,7 @@ MonoBehaviour:
   unitName: Player
   maxHP: 5
   currentHP: 5
-  damage: 100
+  damage: 10
   criticalZone: 0
   attackDuration: 0
   isDead: 0

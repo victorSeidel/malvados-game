@@ -21,6 +21,14 @@ public class Unit : MonoBehaviour
         attackDuration = enemy.attackDuration;
         isDead = false;
     }
+
+    public void RestartPlayer()
+    {
+        maxHP = 5;
+        currentHP = 5;
+        damage = 10;
+        isDead = false;
+    }
     
     public bool TakeDamage(int dmg)
     {

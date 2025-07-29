@@ -841,7 +841,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   characterController: {fileID: 4131028645129852447}
+  currentSpeed: 5
   walkSpeed: 5
+  runSpeed: 8
   characterVisual: {fileID: 6012003460968817413}
   visualRotationOffset: -175
   moveJoystick: {fileID: 0}
