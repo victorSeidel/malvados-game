@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92995854051baf48b274c98b1a8b563, type: 3}
+  m_Name: Quest_03
+  m_EditorClassIdentifier: 
+  questID: quest_03
+  questName: "Miss\xE3o 3"
+  description: "Recuperar o ter\xE7o"
+  state: 0
+  requiredItemID: terco
+  requiredItemQuantity: 1
+  npcName: "Irm\xE3 Maria"
+  startDialogue:
+    sentences:
+    - "Bom dia, pequeno! Como voc\xEA est\xE1? Ser\xE1 que voc\xEA poderia me ajudar
+      a recuperar o meu ter\xE7o? Acredito ter perdido ele enquanto ajudava com a
+      bagun\xE7a nas ru\xEDnas."
+  inProgressDialogue:
+    sentences:
+    - "N\xE3o achou ainda? Tudo bem. Eu espero."
+  completedDialogue:
+    sentences:
+    - "Muito obrigada pela ajuda pequeno! Todos podiam compartilhar da sua bondade
+      ao inv\xE9s de brigarem por nossa terra sagrada. Tal como ocorreu em 1494 com
+      o Tratado de Tordesilhas."
+  rewardedDialogue:
+    sentences:
+    - ...
+  newQuestText: "Complete seu di\xE1rio para retornar"

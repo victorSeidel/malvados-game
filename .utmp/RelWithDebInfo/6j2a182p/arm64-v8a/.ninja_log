@@ -1,12 +1,12 @@
 # ninja log v5
-83	545	7736160847062666	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	35c5840221f215dc
-547	914	7736160850819841	C:/Users/Victor Seidel/UnityProjects/History Mobile Project/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6j2a182p/obj/arm64-v8a/libswappywrapper.so	7677f6e9bfb8b6e
-53	1446	7736160856046078	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c54c2ed081a1dca6
-43	1489	7736160856466592	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	dd62ed9de3659ce1
-63	1493	7736160856537722	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	4eca0b1e6b15acdf
-1	1510	7736160856749561	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	4bb3417958c5c846
-73	1591	7736160857533132	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	f3ebfc2ac329263b
-21	1635	7736160858071308	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	2e503722da5b8ec9
-34	1796	7736160859589470	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	5da022d7d93937a7
-12	1902	7736160860651006	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	afc0aa43612b87e7
-1902	2047	7736160862193224	C:/Users/Victor Seidel/UnityProjects/History Mobile Project/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6j2a182p/obj/arm64-v8a/libgame.so	e6fe7f48f3a44e89
+95	706	7737817540717422	FramePacing/CMakeFiles/swappywrapper.dir/UnitySwappyWrapper.cpp.o	35c5840221f215dc
+708	1395	7737817545549923	C:/Users/Victor Seidel/UnityProjects/History Mobile Project/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6j2a182p/obj/arm64-v8a/libswappywrapper.so	7677f6e9bfb8b6e
+29	2001	7737817553277804	GameActivity/CMakeFiles/game.dir/UGAInputKeyEvent.cpp.o	c54c2ed081a1dca6
+19	2004	7737817553587098	GameActivity/CMakeFiles/game.dir/UGAConfiguration.cpp.o	4bb3417958c5c846
+67	2006	7737817553368599	GameActivity/CMakeFiles/game.dir/UGAInputMotionEvent.cpp.o	4eca0b1e6b15acdf
+55	2022	7737817553676747	GameActivity/CMakeFiles/game.dir/UGAEntry.cpp.o	dd62ed9de3659ce1
+79	2153	7737817555174674	GameActivity/CMakeFiles/game.dir/UGASoftKeyboard.cpp.o	f3ebfc2ac329263b
+1	2201	7737817555692288	GameActivity/CMakeFiles/game.dir/UGADebug.cpp.o	2e503722da5b8ec9
+42	2480	7737817558517335	GameActivity/CMakeFiles/game.dir/UGAInput.cpp.o	5da022d7d93937a7
+10	2605	7737817559712219	GameActivity/CMakeFiles/game.dir/UGAApplication.cpp.o	afc0aa43612b87e7
+2605	2761	7737817561396477	C:/Users/Victor Seidel/UnityProjects/History Mobile Project/Library/Bee/Android/Prj/IL2CPP/Gradle/unityLibrary/build/intermediates/cxx/RelWithDebInfo/6j2a182p/obj/arm64-v8a/libgame.so	e6fe7f48f3a44e89

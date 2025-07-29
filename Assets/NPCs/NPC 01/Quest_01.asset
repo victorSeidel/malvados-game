@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92995854051baf48b274c98b1a8b563, type: 3}
+  m_Name: Quest_01
+  m_EditorClassIdentifier: 
+  questID: quest_01
+  questName: "Miss\xE3o 1"
+  description: Buscar o pingente de um mouro
+  state: 0
+  requiredItemID: pingente_mouro
+  requiredItemQuantity: 1
+  npcName: Ferreiro
+  startDialogue:
+    sentences:
+    - "Bom dia, forasteiro. Preciso de um favor, se n\xE3o for inc\xF4modo\u2026
+      Um mercador mouro deixou aqui pela vila um pingente estranho, com marcas do
+      sul. Partiu \xE0s pressas e nunca voltou. Se encontrar algo assim pelas colinas
+      ou perto do velho po\xE7o, traga-me, sim? Pode ser importante..."
+  inProgressDialogue:
+    sentences:
+    - "Ainda nada? \xC9 s\xF3 um pingente pequeno, dourado, com marcas do sul\u2026
+      deve estar por perto."
+  completedDialogue:
+    sentences:
+    - "Agradecido. Sabe\u2026 ouvi gente dizendo que os portugueses tomaram Ceuta.
+      Dizem que foi coisa grande."
+    - "Nunca pensei que ver\xEDamos os mouros sendo empurrados assim, pra longe..."
+  rewardedDialogue:
+    sentences:
+    - "Voc\xEA tem um jeito de quem ouve mais do que fala. Isso \xE9 raro hoje em
+      dia."
+  newQuestText: "Complete seu di\xE1rio para retornar"
