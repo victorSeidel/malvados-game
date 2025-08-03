@@ -11,9 +11,6 @@ public class CollectableItem : MonoBehaviour
     public int quantity = 1;
     public Sprite icon;
 
-    public Enemy enemyToFight;
-    private bool battleStarted = false;
-
     [Header("Interação")]
     public float interactionRadius = 20f;
 
@@ -54,7 +51,7 @@ public class CollectableItem : MonoBehaviour
                 float pulseScale = 1f + Mathf.PingPong(Time.time * 0.5f, 0.2f);
                 _currentButton.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f) * pulseScale;
 
-                if (!_currentButton.activeSelf && !battleStarted) _currentButton.SetActive(true);
+                if (!_currentButton.activeSelf) _currentButton.SetActive(true);
             }
         }
         else
@@ -85,49 +82,37 @@ public class CollectableItem : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player") && !battleStarted)
-        {
-            battleStarted = true;
-            _currentButton.SetActive(false);
-            BattleSystem.instance.StartBattle(enemyToFight, this);
-        }
-    }
-
-    public void EndBattle(bool won)
-    {
-        if (won)
+        if (other.CompareTag("Player"))
         {
             InventorySystem.instance.AddItem(itemID, itemName, quantity, icon);
             ShowCollectFeedback();
             Destroy(_currentButton);
             Destroy(gameObject);
         }
-
-        battleStarted = false;
     }
     
     private void ShowCollectFeedback()
     {
         GameObject feedback = new GameObject("CollectFeedback");
+        feedback.AddComponent<CanvasRenderer>();
+        Destroy(feedback, 3f);
+
         TextMeshProUGUI text = feedback.AddComponent<TextMeshProUGUI>();
         text.text = "+ " + _nearbyItem.itemName;
         text.color = Color.green;
         text.fontSize = 50;
         text.alignment = TextAlignmentOptions.Center;
+
+        Vector2 viewportPos = Camera.main.WorldToViewportPoint(_nearbyItem.transform.position + Vector3.up * 0.5f);
+        RectTransform canRect = _canvas.GetComponent<RectTransform>();
+        var anchorPos = new Vector2((viewportPos.x * canRect.sizeDelta.x) - (canRect.sizeDelta.x * 0.5f), (viewportPos.y * canRect.sizeDelta.y) - (canRect.sizeDelta.y * 0.5f));
         
         RectTransform rt = feedback.GetComponent<RectTransform>();
-        rt.SetParent(_canvas.transform);
-        rt.anchoredPosition = WorldToCanvasPosition(_nearbyItem.transform.position + Vector3.up * 0.5f);
-        rt.sizeDelta = new Vector2(400, 100);
+        rt.SetParent(_canvas.transform, false);
+        rt.anchoredPosition = anchorPos;
+        rt.sizeDelta = new Vector2(800, 200);
 
         StartCoroutine(AnimateFeedback(feedback));
-    }
-
-    private Vector2 WorldToCanvasPosition(Vector3 worldPos)
-    {
-        Vector2 viewportPos = Camera.main.WorldToViewportPoint(worldPos);
-        RectTransform canvasRect = _canvas.GetComponent<RectTransform>();
-        return new Vector2((viewportPos.x * canvasRect.sizeDelta.x) - (canvasRect.sizeDelta.x * 0.5f), (viewportPos.y * canvasRect.sizeDelta.y) - (canvasRect.sizeDelta.y * 0.5f));
     }
 
     private IEnumerator AnimateFeedback(GameObject feedback)

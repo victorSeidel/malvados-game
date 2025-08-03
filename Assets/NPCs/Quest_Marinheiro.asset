@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92995854051baf48b274c98b1a8b563, type: 3}
+  m_Name: Quest_Marinheiro
+  m_EditorClassIdentifier: 
+  questID: quest_marinheiro
+  questName: Conversa com o marinheiro
+  description: Conversar com o marinheiro
+  state: 0
+  requiredItemID: 
+  requiredItemQuantity: 1
+  npcName: Marinheiro
+  startDialogue:
+    sentences:
+    - "Rapaz... se tem uma coisa que o tal do Infante D. Henrique sabia, era que
+      ningu\xE9m domina o oceano sem antes entender como ele funciona. L\xE1 por
+      1420, o homem resolveu juntar uma cambada de gente sabida em Sagres, no sulz\xE3o
+      de Portugal, e fundou o que a gente chama hoje de Escola de Sagres."
+    - "Mas \xF3... n\xE3o era uma escola dessas de quadro e giz n\xE3o, viu? Era
+      um baita centro de estudos cheio de cart\xF3grafo, marinheiro, astr\xF4nomo,
+      construtor de navio... tudo gente de cabe\xE7a boa, quebrando a cuca pra estudar,
+      planejar e facilitar as navega\xE7\xF5es.\r"
+    - "Foi dali que Portugal come\xE7ou a desenhar os mapas com mais precis\xE3o,
+      a usar direito a b\xFAssola e o astrol\xE1bio, e at\xE9 inventaram uns navios
+      arretados, as tais caravelas. R\xE1pidas, valentes e prontas pra qualquer aventura
+      no mar!"
+    - "Com esse conhecimento todo, come\xE7aram a descer o litoral da \xC1frica com
+      mais coragem. E n\xE3o \xE9 que acharam umas ilhas boas no caminho? Madeira,
+      A\xE7ores e Cabo Verde. Cada uma virou ponto de parada e at\xE9 centro pro
+      tal do com\xE9rcio atl\xE2ntico... principalmente de ouro, marfim e escravizados
+      \u2014 coisa triste essa parte, mas \xE9 verdade.\r"
+    - "Enfim, foi ali em Sagres que o mar deixou de ser s\xF3 mist\xE9rio... e virou
+      estrada."
+  inProgressDialogue:
+    sentences: []
+  completedDialogue:
+    sentences: []
+  rewardedDialogue:
+    sentences: []
+  newQuestText: 

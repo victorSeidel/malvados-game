@@ -3,9 +3,20 @@ using UnityEngine.SceneManagement;
 
 public class Menu : MonoBehaviour
 {
-    public void LoadGame()
+    public GameObject pauseMenu;
+    public void LoadGame(int index)
     {
-        SceneManager.LoadSceneAsync(1);
+        SceneManager.LoadSceneAsync(index);
+    }
+
+    public void TooglePauseMenu()
+    {
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
+    }
+
+    public void ExitGame()
+    {
+        Application.Quit();
     }
 }
 

@@ -5,7 +5,6 @@ public enum BattleState { START, PLAYER_TURN, ENEMY_TURN, WON, LOST }
 
 public class BattleSystem : MonoBehaviour
 {
-    private CollectableItem item;
     [HideInInspector] public static BattleSystem instance;
 
     [HideInInspector] public BattleState state;
@@ -26,6 +25,7 @@ public class BattleSystem : MonoBehaviour
 
     [Header("Enemy Attack")]
     public ProjetilSpawner projetilSpawner;
+    private EnemyCollider enemyCollider;
 
     private void Awake()
     {
@@ -54,26 +54,25 @@ public class BattleSystem : MonoBehaviour
         }
     }
 
-    public void StartBattle(Enemy enemy, CollectableItem itemToCollect)
+    public void StartBattle(Enemy enemy, EnemyCollider enemyColl)
     {
-        item = itemToCollect;
-
         playerUnit = player.GetComponent<Unit>();
         playerUnit.RestartPlayer();
 
         enemyGO = Instantiate(enemyPrefab);
         enemyUnit = enemyGO.GetComponent<Unit>();
         enemyUnit.Setup(enemy);
+        enemyCollider = enemyColl;
 
         battleUI.SetPlayerActions(false);
         battleUI.SetCriticalZoneVisual(enemyUnit.criticalZone);
         battleUI.gameObject.SetActive(true);
-
         battleUI.SetupHUD(enemyUnit);
 
         state = BattleState.START;
 
-        battleUI.fightSound.Play();
+        MusicManager.Instance.PauseMusic();
+        battleUI.PlayFightSound();
         PlayerTurn();
     }
 
@@ -168,7 +167,7 @@ public class BattleSystem : MonoBehaviour
 
     IEnumerator EnemyTurn()
     {
-        battleUI.SetDialogText("Turno de " + enemyUnit.unitName);
+        battleUI.SetDialogText("SOBREVIVA");
 
         yield return new WaitForSeconds(1f);
 
@@ -197,17 +196,18 @@ public class BattleSystem : MonoBehaviour
         if (state == BattleState.WON)
         {
             battleUI.SetDialogText("Você ganhou a batalha!");
-            item.EndBattle(true);
+            enemyCollider.EndBattle(true);
         }
         else if (state == BattleState.LOST)
         {
             battleUI.SetDialogText("Você foi derrotado.");
-            item.EndBattle(false);
+            enemyCollider.EndBattle(false);
         }
         
         yield return new WaitForSeconds(2f);
 
-        battleUI.fightSound.Stop();
+        battleUI.StopFightSound();
+        MusicManager.Instance.ContinueMusic();
         battleUI.gameObject.SetActive(false);
     }
     

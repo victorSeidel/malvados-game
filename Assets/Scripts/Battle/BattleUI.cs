@@ -22,7 +22,8 @@ public class BattleUI : MonoBehaviour
     public RectTransform criticalZoneRect;
 
     [Header("Audio")]
-    public AudioSource fightSound;
+    public AudioSource fightSource;
+    public AudioClip fightClip;
 
     private void Start()
     {
@@ -34,7 +35,7 @@ public class BattleUI : MonoBehaviour
         for (int i = 0; i < playerHPBar.Length; i++) playerHPBar[i].SetActive(true);
 
         enemyNameText.text = enemy.unitName;
-        enemyHPBar.gameObject.SetActive(true);    
+        enemyHPBar.gameObject.SetActive(true);
         enemyHPBar.maxValue = enemy.maxHP;
         enemyHPBar.value = enemy.currentHP;
     }
@@ -56,7 +57,7 @@ public class BattleUI : MonoBehaviour
             if (unit.currentHP <= 0)
             {
                 enemyNameText.text = "";
-                enemyHPBar.gameObject.SetActive(false); 
+                enemyHPBar.gameObject.SetActive(false);
             }
         }
     }
@@ -81,5 +82,17 @@ public class BattleUI : MonoBehaviour
     {
         GameObject[] projectiles = GameObject.FindGameObjectsWithTag("Projectile");
         for (int i = 0; i < projectiles.Length; i++) Destroy(projectiles[i]);
+    }
+
+    public void PlayFightSound()
+    {
+        fightSource.clip = fightClip;
+        fightSource.Play();
+    }
+
+    public void StopFightSound()
+    {
+        fightSource.Stop();
+        fightSource.clip = null;
     }
 }

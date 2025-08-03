@@ -1,0 +1,43 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92995854051baf48b274c98b1a8b563, type: 3}
+  m_Name: Quest_Pescador
+  m_EditorClassIdentifier: 
+  questID: quest_pescador
+  questName: Conversa com o pescador
+  description: Conversar com o pescador
+  state: 0
+  requiredItemID: 
+  requiredItemQuantity: 1
+  npcName: Velho Pescador
+  startDialogue:
+    sentences:
+    - "\xD4 rapaz, c\xEA viu o rebuli\xE7o que t\xE1? Desde que os portugueses chegaram
+      aqui em Ceuta, em 1415, nada mais foi igual. Os caras vieram com tudo, dizendo
+      que era coisa de rei \u2014 D. Jo\xE3o I, se n\xE3o me falha a mem\xF3ria.
+      Vieram atr\xE1s de ouro, marfim... e at\xE9 gente, n\xE9? Tava tudo nesse com\xE9rcio
+      que passava por aqui."
+    - "Falam que isso \xE9 s\xF3 o come\xE7o de uma tal de expans\xE3o ultramarina
+      portuguesa. Nome bonito, n\xE9? Mas no fim das contas, t\xE3o querendo mandar
+      nos mares, nas rotas, e empurrar os mouros pra bem longe. Dizem que \xE9 pela
+      f\xE9... mas ouro brilha mais que cruz, se \xE9 que c\xEA me entende."
+    - "Ah! E o tal do Infante D. Henrique tava no meio dessa bagun\xE7a toda. Dizem
+      que ele \xE9 cabe\xE7a pensante dessas navega\xE7\xF5es a\xED, t\xE3o chamando
+      o homem at\xE9 de Navegador! Sei n\xE3o... s\xF3 sei que o vento que trouxe
+      essas caravelas parece que n\xE3o vai parar t\xE3o cedo."
+  inProgressDialogue:
+    sentences: []
+  completedDialogue:
+    sentences: []
+  rewardedDialogue:
+    sentences: []
+  newQuestText: 

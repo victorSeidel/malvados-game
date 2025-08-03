@@ -27,11 +27,9 @@ public class MusicManager : MonoBehaviour
     {
         if (newClip == currentClip) return;
 
-        if (!string.IsNullOrEmpty(locationName))
-            LocationTransitionUI.Instance.ShowLocation(locationName);
+        if (!string.IsNullOrEmpty(locationName)) LocationTransitionUI.Instance.ShowLocation(locationName);
 
-        if (fadeCoroutine != null)
-            StopCoroutine(fadeCoroutine);
+        if (fadeCoroutine != null) StopCoroutine(fadeCoroutine);
 
         fadeCoroutine = StartCoroutine(FadeToNewClip(newClip));
     }
@@ -60,5 +58,15 @@ public class MusicManager : MonoBehaviour
 
         musicSource.volume = 1f;
         currentClip = newClip;
+    }
+
+    public void PauseMusic()
+    {
+        musicSource.Pause();
+    }
+
+    public void ContinueMusic()
+    {
+        PlayMusic(currentClip);
     }
 }

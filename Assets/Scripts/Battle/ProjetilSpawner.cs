@@ -7,8 +7,12 @@ public class ProjetilSpawner : MonoBehaviour
     public GameObject projectilePrefab;
     public RectTransform canvasTransform;
     public RectTransform player;
-    public float maxDir;
+
+    [Header("Spawner")]
+    public Vector2[] spawnersPosition;
     private Vector2 spawnerPosition;
+
+    [Header("Patterns")]
     public List<BulletPattern> patterns = new List<BulletPattern>();
     private BulletPattern currentPattern;
 
@@ -21,7 +25,7 @@ public class ProjetilSpawner : MonoBehaviour
         SelectRandomPattern();
         if (currentPattern.timer >= 1)
         {
-            currentPattern.timer = 0f; 
+            currentPattern.timer = 0f;
             ExecutePattern(currentPattern);
         }
     }
@@ -46,7 +50,8 @@ public class ProjetilSpawner : MonoBehaviour
 
     private void ExecutePattern(BulletPattern pattern)
     {
-        spawnerPosition = new Vector2(Random.Range(-maxDir, maxDir), Random.Range(-maxDir, maxDir));
+        int index = Random.Range(0, spawnersPosition.Length);
+        spawnerPosition = spawnersPosition[index];
 
         switch (pattern.patternName)
         {
@@ -138,10 +143,13 @@ public class ProjetilSpawner : MonoBehaviour
         float spacing = 40f;
         for (int i = 0; i < pattern.bulletCount; i++)
         {
+            var indexes = new int[] { 2, 4, 6, 8, 9 };
+            var index = Random.Range(0, indexes.Length);
+
             Vector2 offset = new Vector2((i - pattern.bulletCount / 2) * spacing, 0f);
             GameObject proj = Instantiate(projectilePrefab, canvasTransform);
             RectTransform projRect = proj.GetComponent<RectTransform>();
-            projRect.anchoredPosition = spawnerPosition + offset;
+            projRect.anchoredPosition = spawnersPosition[index] + offset;
 
             Projectile bullet = proj.AddComponent<Projectile>();
             bullet.direction = Vector2.down;

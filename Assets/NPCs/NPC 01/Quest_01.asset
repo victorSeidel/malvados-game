@@ -32,8 +32,8 @@ MonoBehaviour:
   completedDialogue:
     sentences:
     - "Agradecido. Sabe\u2026 ouvi gente dizendo que os portugueses tomaram Ceuta.
-      Dizem que foi coisa grande."
-    - "Nunca pensei que ver\xEDamos os mouros sendo empurrados assim, pra longe..."
+      Dizem que foi coisa grande. Nunca pensei que ver\xEDamos os mouros sendo empurrados
+      assim, pra longe..."
   rewardedDialogue:
     sentences:
     - "Voc\xEA tem um jeito de quem ouve mais do que fala. Isso \xE9 raro hoje em

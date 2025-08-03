@@ -65,18 +65,11 @@ public class QuestSystem : MonoBehaviour
     {
         if (activeQuests.TryGetValue(questID, out Quest quest))
         {
-            if (InventorySystem.instance.HasItem(quest.requiredItemID, quest.requiredItemQuantity))
-            {
-                quest.state = QuestState.Completed;
-                SaveSystem.SaveQuests();
+            quest.state = QuestState.Completed;
+            SaveSystem.SaveQuests();
 
-                audioSource.clip = completeClip;
-                audioSource.Play();
-            }
-            else
-            {
-                SaveSystem.SaveQuests();
-            }
+            audioSource.clip = completeClip;
+            audioSource.Play();
         }
     }
 

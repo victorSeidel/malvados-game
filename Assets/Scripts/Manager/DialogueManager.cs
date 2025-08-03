@@ -26,6 +26,8 @@ public class DialogueManager : MonoBehaviour
     public TextMeshProUGUI dialogueText;
     public Button continueButton;
 
+    private bool isTyping = false;
+
     private void Awake()
     {
         if (instance == null)
@@ -42,6 +44,8 @@ public class DialogueManager : MonoBehaviour
     private void Start()
     {
         continueButton.onClick.AddListener(DisplayNextSentence);
+        continueButton.interactable = false;
+        continueButton.gameObject.SetActive(false);
 
         dialoguePanel.SetActive(false);
     }
@@ -49,12 +53,12 @@ public class DialogueManager : MonoBehaviour
     public void StartDialogue(Dialogue dialogue, string npcName)
     {
         currentDialogue = dialogue;
-        currentSentenceIndex = 0;
+        currentSentenceIndex = -1;
     
         dialoguePanel.SetActive(true);
         speakerNameText.text = npcName;
 
-        DisplaySentence(dialogue.sentences[0]);
+        DisplayNextSentence();
     }
     
     private void DisplaySentence(string sentence)
@@ -66,21 +70,31 @@ public class DialogueManager : MonoBehaviour
 
     private IEnumerator TypeSentence(string sentence)
     {
+        isTyping = true;
+
         dialogueText.text = "";
+
+        continueButton.interactable = false;
         continueButton.gameObject.SetActive(false);
-        
+
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
             yield return new WaitForSeconds(typewriterSpeed);
         }
-        
+
+        isTyping = false;
+
         continueButton.gameObject.SetActive(true);
+        continueButton.interactable = true;
+
         typingCoroutine = null;
     }
 
     public void DisplayNextSentence()
     {
+        if (isTyping) return;
+
         currentSentenceIndex++;
 
         if (currentSentenceIndex < currentDialogue.sentences.Length)

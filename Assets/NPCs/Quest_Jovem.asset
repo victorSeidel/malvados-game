@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e92995854051baf48b274c98b1a8b563, type: 3}
+  m_Name: Quest_Jovem
+  m_EditorClassIdentifier: 
+  questID: quest_jovem
+  questName: Conversa com o jovem
+  description: Conversar com o jovem
+  state: 0
+  requiredItemID: 
+  requiredItemQuantity: 1
+  npcName: Jovem
+  startDialogue:
+    sentences:
+    - "\xD4, sabia que bem antes do Cabral dar de cara com o Brasil, j\xE1 tinha
+      portugu\xEAs desafiando os mares em busca de riquezas l\xE1 do outro lado do
+      mundo?\r\nO pessoal queria era chegar \xE0s \xCDndias, sabe? Fazer aquele tal
+      de com\xE9rcio de especiarias e encher os cofres com pimenta, cravo, canela...
+      essas coisas que valiam ouro na Europa!"
+    - "Em 1488, teve o Bartolomeu Dias, um navegante corajoso que conseguiu contornar
+      o finalz\xE3o da \xC1frica. Ele at\xE9 deu nome pro lugar: Cabo da Boa Esperan\xE7a.
+      Ali o povo viu que dava pra chegar na \xCDndia pelo mar mesmo. Imagina o al\xEDvio!\r\n\r"
+    - "Mas o melhor ainda tava por vir. Em 1498, o Vasco da Gama saiu de Lisboa e
+      chegou na \xCDndia de vez, navegando tudinho pela costa africana. Isso a\xED
+      botou Portugal no topo do jogo mar\xEDtimo, viu? A aventura virou neg\xF3cio
+      \u2014 e neg\xF3cio lucrativo!"
+    - "Essas viagens mostraram pro reino que dava pra cortar caminho, fugir das rotas
+      por terra, que eram cheias de imposto e confus\xE3o. E mais: que o mar, mesmo
+      perigoso, podia levar at\xE9 terras desconhecidas. Quem sabe at\xE9 mais do
+      que s\xF3 especiarias\u2026"
+  inProgressDialogue:
+    sentences: []
+  completedDialogue:
+    sentences: []
+  rewardedDialogue:
+    sentences: []
+  newQuestText: 

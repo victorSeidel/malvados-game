@@ -6,6 +6,7 @@ public class RoomTrigger : MonoBehaviour
 
     private void Update()
     {
+        Debug.Log(roomManager.CheckQuests());
         if (roomManager.CheckQuests()) QuestSystem.instance.SetQuestText("Volte para a cabine");
     }
 
@@ -15,10 +16,5 @@ public class RoomTrigger : MonoBehaviour
         {
             roomManager.EnterRoom();
         }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        roomManager.ExitToMainMap();
     }
 }

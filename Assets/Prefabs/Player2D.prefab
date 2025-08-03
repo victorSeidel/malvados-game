@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 8754715024894003850}
   - component: {fileID: 6201033606914918448}
   - component: {fileID: 786810374317069648}
+  - component: {fileID: 7642778771492962263}
   - component: {fileID: 5034443447140388768}
   - component: {fileID: 4347021969603467548}
-  - component: {fileID: 7642778771492962263}
   m_Layer: 5
   m_Name: Player2D
   m_TagString: Player2D
@@ -75,42 +75,6 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &5034443447140388768
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7966586672267550154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 574fdbf31eb9d1142a045c8f418b7b80, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 500
-  maxX: 260
-  maxY: 260
-  joystick: {fileID: 0}
---- !u!114 &4347021969603467548
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7966586672267550154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a177119e3621e5846a0cbc350cd05da2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitName: Player
-  maxHP: 5
-  currentHP: 5
-  damage: 10
-  criticalZone: 0
-  attackDuration: 0
-  isDead: 0
-  damageSound: {fileID: 7642778771492962263}
 --- !u!82 &7642778771492962263
 AudioSource:
   m_ObjectHideFlags: 0
@@ -208,3 +172,39 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5034443447140388768
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966586672267550154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 574fdbf31eb9d1142a045c8f418b7b80, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 500
+  maxX: 260
+  maxY: 260
+  joystick: {fileID: 0}
+--- !u!114 &4347021969603467548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7966586672267550154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a177119e3621e5846a0cbc350cd05da2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unitName: Player
+  maxHP: 5
+  currentHP: 5
+  damage: 10
+  criticalZone: 0
+  attackDuration: 0
+  isDead: 0
+  damageSound: {fileID: 7642778771492962263}
